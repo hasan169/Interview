@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+	function mcount(arr){
+		var counter = 0;
+		var maximum = 0;
+		var element = 0;
+		var mark = Array(arr.length).fill(0);
+		for(var i = 0; i < arr.length; i++){
+			if(mark[i] == 0){
+				counter = 1;
+				for( var j = i+1; j < arr.length; j++){
+					if( arr[i] === arr[j]){
+						mark[j] = 1;
+						counter++;
+					}
+				}
+				if(counter > maximum){
+					maximum = counter;
+					element = arr[i];
+				}
+			}
+			
+		}
+		return element;
+	}
+	alert(mcount([1, 1, 2, '', 4, 6, 'hello', 7, 8, 'toString', 8, 8, 'world']));
+</script>
+</body>
+</html>
