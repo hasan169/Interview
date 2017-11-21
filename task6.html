@@ -1,0 +1,54 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <input type="date" id="datePicker"> <input type="time" id="timePicker"> <button type="button" id="btn"> Set</button><br>
+  days:
+  <input type="text" id="days">
+  hours:
+  <input type="text" id="hour">
+  minutes:
+  <input type="text" id="minute">
+  seconds:
+  <input type="text" id="second">
+ <script>
+  $(document).ready(function(){
+	var date2;
+	var date1;
+	var hourdiff;
+	var minutediff;
+    $("#btn").click(function(){
+    });
+	$('#datePicker').val('2018-01-01');
+	$('#timePicker').val('00:00:00');
+	var date  = new Date(); // The Date object lets you work with dates.
+    var year  = date.getFullYear(); // This method gets the four digit year.
+    var month = date.getMonth() + 1; // This method gets the month and Jan is 0.
+    var day   = date.getDate(); // This method gets the day of month as a number.
+    var hour  = date.getHours(); // This method gets the hour 
+    var min   = date.getMinutes(); // This method gets the minutes
+	var second   = date.getSeconds(); // This method gets the minutes
+	month = (month < 10 ? '0' + month : month);
+	day   = (day   < 10 ? '0' + day   : day  ); 
+	hour  = (hour  < 10 ? '0' + hour  : hour ); // It adds a 0 to number less than 10 because input[type=time] only accepts 00:00 format. 
+	min   = (min   < 10 ? '0' + min   : min  );
+	second   = (second   < 10 ? '0' + second   : second );
+	var todayDate = month + '-' + day + '-' + year;
+	function daydiff() {
+		date1 = new Date($('#datePicker').val());
+		date2 = new Date(todayDate);
+		var timeDiff = Math.abs(date1.getTime() - date.getTime());
+		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+		hourdiff = diffDays * 24;
+		minutediff = hourdiff * 60;
+		return diffDays;
+	}
+	$('#days').val(daydiff());
+	$('#hour').val(hourdiff);
+	$('#minute').val(minutediff);
+	$('#second').val(minutediff*60);
+});
+</script>
+</body>
+</html>
