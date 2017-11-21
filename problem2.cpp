@@ -13,7 +13,7 @@ char str[105];
 int main(){
     int length,counter;
     bool lowerCase,upperCase,digit;
-  //  freopen("input.txt","r",stdin);
+   // freopen("input.txt","r",stdin);
     while(scanf("%s",str) == 1){
         lowerCase = false;
         upperCase = false;
